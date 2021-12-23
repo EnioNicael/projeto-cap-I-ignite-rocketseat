@@ -21,11 +21,21 @@ export function Home() {
 
   function handleToggleTaskDone(id: number) {
     //TODO - toggle task done if exists
+    const tasksCopy = tasks.map(task => ({ ...task }));
+    tasksCopy.forEach((task) => {
+      if (task.id === id) {
+        task.done = true
+      }
+    });
+
+    setTasks(tasksCopy);
   }
 
   function handleRemoveTask(id: number) {
     //TODO - remove task from state
   }
+
+  console.log(tasks)
 
   return (
     <View style={styles.container}>
